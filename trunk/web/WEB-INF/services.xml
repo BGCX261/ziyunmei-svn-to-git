@@ -1,0 +1,21 @@
+<serviceGroup>
+	<service name="queryServices">
+		<description>
+			QueryService 唯一的
+		</description>
+		<module ref="logging" />
+		<parameter name="ServiceObjectSupplier">
+			org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">wsQueryService</parameter>
+		<operation name="dispatch">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+			<operation name="update">
+			<messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</operation>
+	</service>
+</serviceGroup>
+
+
+

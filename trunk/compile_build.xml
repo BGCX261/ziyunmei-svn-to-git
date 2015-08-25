@@ -1,0 +1,48 @@
+<project name="packageServices" default="compile" basedir=".">
+
+	<!-- java的构建目录-->
+	<property name="build.dir" location="build" />
+	<!-- web项目目录 -->
+	<property name="web.dir" location="web" />
+	<!-- java的源码目录-->
+	<property name="src.dir" location="src" />
+	<!-- java的目标目录-->
+	<property name="target.dir" location="${build.dir}/WEB-INF/classes" />
+
+	<!-- lib包 -->
+	<path id="lib.path">
+		<fileset dir="${web.dir}/WEB-INF/lib/" includes="*.jar" />
+		<fileset dir="weblib" includes="*.jar" />
+	</path>
+	<!-- 创建所需目录 -->
+	<target name="makedir">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${target.dir}" />
+	</target>
+	<!--编译源文件 -->
+	<target name="compile" depends="makedir">
+		<javac srcdir="${src.dir}" destdir="${target.dir}" classpathref="lib.path" encoding="utf-8" target="1.6">
+		</javac>
+	</target>
+	<!-- 复制其他文件 -->
+	<target name="copy" depends="compile">
+		<copy todir="${target.dir}" overwrite="true" includeEmptyDirs="false" verbose="false">
+			<fileset dir="${src.dir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy todir="${build.dir}" overwrite="true" includeEmptyDirs="false" verbose="false">
+			<fileset dir="${web.dir}">
+				<include name="**/*.*" />
+				<exclude name="WEB-INF/classes/**" />
+				<exclude name="**/.svn" />
+				<exclude name="**/*.bak" />
+			</fileset>
+		</copy>
+	</target>
+	<!-- 打包 -->
+	<target name="create.war" depends="copy">
+		<jar destfile="frame.war" basedir="${build.dir}">
+		</jar>
+	</target>
+</project>

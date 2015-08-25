@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<tx:advice id="demoTransactionAdvice">
+		<tx:attributes>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:advisor advice-ref="demoTransactionAdvice"
+			pointcut="execution(* com.yunmei.demo.bo.*.*(..))" />
+		<aop:advisor advice-ref="sysLogAdvice"
+			pointcut="execution(* com.yunmei.demo.bo.*.*(..))" />
+	</aop:config>
+
+	<bean id="demoOrderDAO" class="com.yunmei.demo.dao.OrderDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="demoOrderService" class="com.yunmei.demo.bo.OrderBOImpl">
+		<property name="orderDAO" ref="demoOrderDAO"></property>
+		<property name="workflowBO" ref="sysWorkflowService"></property>
+		
+		<property name="views">
+			<map>
+				<entry key="enter" value="com/yunmei/demo/view/order.jsp" />
+			</map>
+		</property>
+	</bean>
+</beans>

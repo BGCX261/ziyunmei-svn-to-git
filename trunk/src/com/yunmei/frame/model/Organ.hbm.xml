@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Organ" table="sys_organ">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name_" />
+		<property name="phone" column="phone_" />
+		<property name="remark" column="remark_" />
+		<property name="address" column="address_" />
+		<property name="code" column="code_" />
+		<property name="email" column="email_" />
+		<property name="type" column="type_" />
+		<property name="fax" column="fax_" />
+		<property name="responsibility" column="responsibility_" />
+		<property name="state" column="state_" />
+		<property name="website" column="website_" />
+		<many-to-one name="admin" column="admin_" cascade="save-update" />
+	</class>
+</hibernate-mapping>

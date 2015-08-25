@@ -1,0 +1,29 @@
+<project name="packageServices" default="services.clean" basedir=".">
+	<!--webservices的构建目录-->
+	<property name="build.services" location="build" />
+	<!-- services.xml的位置 -->
+	<property name="build.services.xml" value="web/WEB-INF/services.xml" />
+	<!-- aar的最终位置-->
+	<property name="build.services.aar" location="web/WEB-INF/services" />
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build.services}/META-INF" />
+		<mkdir dir="${build.services.aar}" />
+	</target>
+	<target name="services.copy.xml" depends="init">
+		<copy todir="${build.services}/META-INF" file="${build.services.xml}">
+		</copy>
+	</target>
+	<target name="services.create.aar" depends="services.copy.xml">
+		<jar destfile="axis2_services.aar" basedir="${build.services}">
+		</jar>
+	</target>
+	<target name="services.move.aar" depends="services.create.aar">
+		<move file="axis2_services.aar" todir="${build.services.aar}" />
+	</target>
+	<target name="services.clean" depends="services.move.aar">
+		<delete dir="${bulid}">
+		</delete>
+	</target>
+</project>

@@ -1,0 +1,29 @@
+<project name="packageServices" default="module.clean" basedir=".">
+	<!--webservices的构建目录-->
+	<property name="build.module" location="build" />
+	<!-- module.xml的位置 -->
+	<property name="build.module.xml" value="web/WEB-INF/module.xml" />
+	<!-- aar的最终位置-->
+	<property name="build.module.mar" location="web/WEB-INF/modules" />
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${build.module}/META-INF" />
+		<mkdir dir="${build.module.mar}" />
+	</target>
+	<target name="module.copy.xml" depends="init">
+		<copy todir="${build.module}/META-INF" file="${build.module.xml}">
+		</copy>
+	</target>
+	<target name="module.create.mar" depends="module.copy.xml">
+		<jar destfile="axis2_module.mar" basedir="${build.module}">
+		</jar>
+	</target>
+	<target name="module.move.mar" depends="module.create.mar">
+		<move file="axis2_module.mar" todir="${build.module.mar}" />
+	</target>
+	<target name="module.clean" depends="module.move.mar">
+		<delete dir="${bulid}">
+		</delete>
+	</target>
+</project>

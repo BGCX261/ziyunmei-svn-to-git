@@ -1,0 +1,15 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, lengend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; }
+ul { list-style:none;}
+em { font-style:normal;}
+img { border:0;}
+ 
+.clearfix{zoom:1;}
+.clearfix:after{content:"\0020";display:block;clear:both;height:0;}
+.text-right { text-align:right;}
+ 
+body { line-height:1.5; color:#4B4B4B}
+a { text-decoration:none; color:#4B4B4B;}
+a:hover { color:#36c; text-decoration:none;}
+ 
+.wrap {  width:960px; margin: 0 auto;}

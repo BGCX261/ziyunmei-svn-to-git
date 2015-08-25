@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.PostRole" table="sys_post_role">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<many-to-one name="post" class="com.yunmei.frame.model.Post" column="post_id_"></many-to-one>
+		<many-to-one name="role" class="com.yunmei.frame.model.Role"  column="role_id_"></many-to-one>
+	</class>
+</hibernate-mapping>

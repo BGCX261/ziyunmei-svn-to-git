@@ -1,0 +1,122 @@
+.text-right {
+	text-align: right;
+}
+
+a {
+	text-decoration: none;
+	color: #4B4B4B;
+}
+
+a:hover {
+	color: #36c;
+	text-decoration: underline;
+}
+
+body {
+	background: #fff;
+}
+
+.center_block {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.float_right {
+	float: right;
+}
+
+.header {
+	height: 100px;
+}
+
+.header_right {
+	float: right;
+	height: 60px;
+	text-align: right;
+	padding-top: 40px;
+}
+
+.toolbar {
+	height: 30px;
+}
+
+.toolbar a:link {
+	color: red;
+}
+
+.toolbar a:visited {
+	color: blue;
+}
+
+.toolbar a:hover {
+	color: #c0c0c0;
+}
+
+.toolbar a:active {
+	color: yellow;
+}
+
+.toolbtn {
+	border: 1px solid #ccc;
+	background: #ccf;
+	width: 100px;
+	height: 26px;
+	margin: 1px 2px 1px 2px;
+	padding-top: 3px;
+	font-size: 10pt;
+	float: left;
+}
+
+.tailer {
+	height: 50px;
+	border-top: 1px solid #6699ff;
+}
+
+.header_logo {
+	float: left;
+	width: 200px;
+	height: 100px;
+	background: #fff url(imgs/ziyunmei.png) no-repeat;
+	border: 0;
+	cursor: pointer;
+}
+
+.header_title {
+	float: left;
+	width: 350px;
+	height: 100px;
+	background: #fff url(imgs/cloudstitle.png) no-repeat;
+}
+
+.workspace_container {
+	height: 600px;
+}
+
+.frame_container {
+	width: 960px;
+	border: none;
+	overflow: visible;
+}
+
+#menu {
+	height: 35px;
+	line-height: 35px;
+	background: url(imgs/header.png) no-repeat;
+	margin-bottom: 10px;
+}
+
+#menu a {
+	float: left;
+	width: 118px;
+	text-decoration: none;
+	height: 35px;
+	margin-right: 2px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+#menu a:hover {
+	background: url(imgs/header.png) no-repeat -90px -35px;
+	border:none;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Dict" table="sys_dict">
+		<id name="id" column="id_" type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name_" />
+		</property>
+		<property name="order" type="java.lang.Long">
+			<column name="order_" />
+		</property>
+		<property name="desc" type="java.lang.String">
+			<column name="desc_" />
+		</property>
+		<set name="dictInfos" cascade="delete">
+			<key>
+				<column name="dict_id_" />
+			</key>
+			<one-to-many class="com.yunmei.frame.model.DictInfo" />
+		</set>
+	</class>
+</hibernate-mapping>

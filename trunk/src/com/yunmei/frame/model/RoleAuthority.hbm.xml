@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.RoleAuthority" table="sys_role_auth">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<many-to-one name="authority" class="com.yunmei.frame.model.Authority" column="auth_id_" cascade="save-update"></many-to-one>
+		<many-to-one name="role"      class="com.yunmei.frame.model.Role"      column="role_id_" cascade="save-update"></many-to-one>
+	</class>
+</hibernate-mapping>

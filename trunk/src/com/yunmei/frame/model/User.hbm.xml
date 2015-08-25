@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.User" table="sys_user">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="name"        column="name_" />
+		<property name="login"       column="login_" />
+		<property name="password"    column="password_" />
+		<property name="remark"      column="remark_" />
+		<property name="birthday"    column="birthday_" />
+		<property name="sex"         column="sex_" />
+		<property name="email"       column="email_" />
+		<property name="code"        column="code_" />
+		<property name="education"   column="education_" />
+		<property name="nationality" column="nationality_" />
+		<property name="tphone"      column="tphone_" />
+		<property name="mphone"      column="mphone_" />
+		<property name="subject"     column="subject_" />
+		<property name="defaultPost" column="default_post_" />
+		<set name="userRoles" inverse="true" cascade="delete">
+			<key column="user_id_"></key>
+			<one-to-many class="com.yunmei.frame.model.UserRole" />
+		</set>
+	</class>
+</hibernate-mapping>

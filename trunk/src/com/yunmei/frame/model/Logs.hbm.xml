@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Logs" table="sys_logs">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="isSuccess" column="success_" />
+		<property name="logTime" column="logtime_" />
+		<property name="reqMethod" column="req_method_" />
+		<property name="reqParams" column="req_params_" />
+		<property name="userId" column="user_id_" />
+		<property name="userName" column="user_name_" />
+			<property name="userIp" column="user_ip_" />
+	</class>
+</hibernate-mapping>

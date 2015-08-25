@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Authority" table="sys_authority">
+		<!--  <cache usage="nonstrict-read-write"/>-->
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="text" column="text_" />
+		<property name="parent" column="parent_" />
+		<property name="left" column="left_" />
+		<property name="right" column="right_" />
+		<property name="type" column="type_"/>
+		<property name="url" column="url_"/>
+		<property name="remark" column="remark_"/>
+		<set name="children" inverse="false" cascade="all">
+			<key column="parent_" />
+			<one-to-many class="com.yunmei.frame.model.Authority" />
+		</set>
+		<set name="authRoles" cascade="all">
+			<key column="auth_id_"></key>
+			<one-to-many class="com.yunmei.frame.model.RoleAuthority"/>
+		</set>
+	</class>
+</hibernate-mapping>

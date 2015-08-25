@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.DataFilter" table="sys_data_filter">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="filterSQL" column="filter_sql_"/>
+		<property name="remark" column="remark_"/>
+		<property name="authId" column="auth_id_" />
+		<property name="authName" column="auth_name_" />
+		<property name="roleId" column="role_id_" />
+		<property name="order" column="order_" />
+	</class>
+</hibernate-mapping>

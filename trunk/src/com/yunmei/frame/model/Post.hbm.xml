@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Post" table="sys_post">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="name"   column="name_"/>
+		<property name="admin"  column="admin_"/>
+		<property name="remark" column="remark_"/>
+		<set name="postRoles" inverse="true" cascade="delete">
+			<key column="post_id_"></key>
+			<one-to-many class="com.yunmei.frame.model.PostRole"/>
+		</set>
+	</class>
+</hibernate-mapping>

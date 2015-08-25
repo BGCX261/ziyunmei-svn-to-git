@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.DictInfo" table="sys_dict_info">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="dictId" type="java.lang.String">
+			<column name="dict_id_" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name_" />
+		</property>
+		<property name="value" type="java.lang.String">
+			<column name="value_" />
+		</property>
+		<property name="order" type="java.lang.Long">
+			<column name="order_" />
+		</property>
+	</class>
+</hibernate-mapping>

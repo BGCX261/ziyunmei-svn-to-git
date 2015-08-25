@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.TimerTask" table="sys_timer">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name_" />
+		<property name="type" column="type_" />
+		<property name="state" column="state_" />
+		<property name="invoke" column="invoke_" />
+		<property name="fixed" column="fixed_" />
+		<property name="params" column="params_" />
+		<property name="repeatInterval" column="repeat_interval_" />
+		<property name="startDate" column="start_date_" />
+		<property name="endDate" column="end_date_" />
+		<!-- 没用 -->
+		<property name="executeTime" column="execute_time_" />
+		<property name="executeDate" column="execute_date_" />
+		<property name="executeType" column="execute_type_" />
+		<property name="executeTimeEnd" column="execute_time_end_" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<tx:advice id="sysTransactionAdvice">
+		<tx:attributes>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	<bean id="sysLogAdvice" class="com.yunmei.frame.interceptor.LogAdvice">
+		<property name="sysLogService" ref="sysLogService"></property>
+	</bean>
+	<aop:config>
+		<!-- 事务信息配置  -->
+		<aop:advisor advice-ref="sysTransactionAdvice"
+			pointcut="execution(* com.yunmei.frame.bo.*.*(..))" />
+		<!-- 日志信息配置  
+		<aop:advisor advice-ref="sysLogAdvice"
+			pointcut="execution(* com.yunmei.frame.bo.IAuthorityBO.*(..))" />-->
+	</aop:config>
+	<bean id="sysOrganService" class="com.yunmei.frame.bo.impl.OrganBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysAuthService" class="com.yunmei.frame.bo.impl.AuthorityBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysLogService" class="com.yunmei.frame.bo.impl.LogBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysDictService" class="com.yunmei.frame.bo.impl.DictBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysTimerService" class="com.yunmei.frame.bo.impl.TimerBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysTempUserService" class="com.yunmei.frame.bo.impl.TempUserBOImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="sysWorkflowService" class="com.yunmei.frame.bo.impl.WorkflowBOImpl">
+		<property name="processEngine" ref="processEngine"></property>
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

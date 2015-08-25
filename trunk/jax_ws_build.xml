@@ -1,0 +1,26 @@
+<project name="packageServices" default="pre-dist" basedir=".">
+	<path id="java.lib">
+		<fileset dir="web/WEB-INF/lib/" includes="*.jar" />
+	</path>
+	<property name="javac.classpath" location="web/WEB-INF/lib" />
+	<property name="distdir" location="web/WEB-INF/classes" />
+	<target name="pre-dist">
+		<taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
+			<classpath refid="java.lib" />
+		</taskdef>
+		<wsgen destdir="${distdir}" xendorsed="true" 
+			genwsdl="true" cp="${distdir}" sourcedestdir="src" 
+			resourcedestdir="${distdir}" sei="helloservice.endpoint.Hello">
+			<classpath refid="java.lib" />
+		</wsgen>
+	</target>
+
+	<target name="-pre-compile-test">
+		<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+			<classpath path="${javac.classpath}" />
+		</taskdef>
+		<antcall target="run" />
+		<echo>running wsimport</echo>
+		<wsimport debug="true" keep="true" destdir="test" package="my.sample.test.generated" wsdl="http://localhost:8080/JAX-WS20Project/hello?wsdl" />
+	</target>
+</project>

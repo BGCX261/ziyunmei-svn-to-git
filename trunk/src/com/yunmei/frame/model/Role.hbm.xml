@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.frame.model.Role" table="sys_role">
+		<id name="id" column="id_">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name_" />
+		<property name="remark" column="remark_" />
+		<set name="userRoles" inverse="true" cascade="delete">
+			<key column="role_id_"  ></key>
+			<one-to-many class="com.yunmei.frame.model.UserRole" />
+		</set>
+		<set name="postRoles" inverse="true" cascade="delete">
+			<key column="role_id_"></key>
+			<one-to-many class="com.yunmei.frame.model.PostRole" />
+		</set>
+		<set name="roleAuths" inverse="true" cascade="delete">
+			<key column="role_id_"></key>
+			<one-to-many class="com.yunmei.frame.model.RoleAuthority" />
+		</set>
+	</class>
+</hibernate-mapping>

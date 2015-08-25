@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.yunmei.demo.model.Order" table="demo_order">
+		<id name="id" column="id_" type="java.lang.Long">
+			<generator class="native"></generator>
+		</id>
+		<property name="code"   column="code_" />
+		<property name="monkey" column="monkey_" />
+		<property name="desc"   column="desc_" />
+		<property name="remark" column="remark_" />
+		<property name="name"   column="name_" />
+		<property name="state"  column="state_" />
+		<property name="date"   column="date_" />
+		<property name="user"   column="user_" />
+	</class>
+</hibernate-mapping>
